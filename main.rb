@@ -2,6 +2,7 @@ require 'gosu'
 
 require_relative 'z_order'
 require_relative 'player'
+require_relative 'animal'
 require_relative 'window'
 
 WindowWidth = 640
