@@ -1,5 +1,5 @@
 class Animal
-  attr_reader :y
+  attr_reader :x, :y
 
   def initialize(type)
     @image = if type == :animal_up
@@ -20,5 +20,13 @@ class Animal
 
   def draw
     @image.draw(@x, @y, ZOrder::ITEMS)
+  end
+
+  def x_center_of_mass
+    @x + @image.width / 2
+  end
+
+  def y_center_of_mass
+    @y
   end
 end

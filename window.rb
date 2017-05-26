@@ -8,6 +8,8 @@ class Window < Gosu::Window
     @player = Player.new(width / 2, height / 2)
 
     @items = []
+
+    @ui = UI.new
   end
 
   def update
@@ -21,6 +23,8 @@ class Window < Gosu::Window
     @items.each(&:draw)
 
     @player.draw
+
+    @ui.draw(score: @player.score)
   end
 
   private
@@ -47,5 +51,7 @@ class Window < Gosu::Window
     @player.go_left if Gosu::button_down?(Gosu::KbLeft)
     @player.go_right if Gosu::button_down?(Gosu::KbRight)
     @player.move
+
+    @player.collect(@items)
   end
 end

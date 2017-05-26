@@ -1,5 +1,6 @@
 module ZOrder
-  BACKGROUND = 0
-  PLAYER = 1
-  ITEMS = 1
+  BACKGROUND  = 0
+  ITEMS       = 1
+  PLAYER      = 2
+  UI          = 3
 end
