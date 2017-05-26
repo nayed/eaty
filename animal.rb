@@ -10,7 +10,7 @@ class Animal
     
     @velocity = Gosu::random(0.8, 3.3)
 
-    @x = rand * (WindowWidth - @image.width)
+    @x = rand * (WINDOW_WIDTH- @image.width)
     @y = 0
   end
 
@@ -19,6 +19,6 @@ class Animal
   end
 
   def draw
-    @image.draw(@x, @y, ZOrder::Items)
+    @image.draw(@x, @y, ZOrder::ITEMS)
   end
 end

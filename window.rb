@@ -16,7 +16,7 @@ class Window < Gosu::Window
   end
 
   def draw
-    @background_image.draw(0, 0, ZOrder::Background)
+    @background_image.draw(0, 0, ZOrder::BACKGROUND)
 
     @items.each(&:draw)
 
@@ -29,7 +29,7 @@ class Window < Gosu::Window
     populate_items
 
     @items.each(&:update)
-    @items.reject! { |item| item.y > WindowHeight }
+    @items.reject! { |item| item.y > WINDOW_HEIGHT }
   end
 
   def populate_items

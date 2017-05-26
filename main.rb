@@ -5,8 +5,8 @@ require_relative 'player'
 require_relative 'animal'
 require_relative 'window'
 
-WindowWidth = 640
-WindowHeight = 480
+WINDOW_WIDTH = 640
+WINDOW_HEIGHT = 480
 
-window = Window.new(WindowWidth, WindowHeight)
+window = Window.new(WINDOW_WIDTH, WINDOW_HEIGHT)
 window.show
