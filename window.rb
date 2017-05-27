@@ -24,7 +24,7 @@ class Window < Gosu::Window
 
     @player.draw
 
-    @ui.draw(score: @player.score)
+    @ui.draw(@player)
   end
 
   private
@@ -41,9 +41,9 @@ class Window < Gosu::Window
 
     type = rand
     if type < 0.035
-      @items.push(Animal.new(:animal_up))
+      @items.push(Animal.new(:fish))
     elsif type < 0.040
-      @items.push(Animal.new(:animal_down))
+      @items.push(Animal.new(:turtle))
     end
   end
 

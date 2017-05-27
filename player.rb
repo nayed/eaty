@@ -1,5 +1,5 @@
 class Player
-  attr_reader :score
+  attr_reader :score, :lives
 
   Y = 390
   ACCELERATION_FACTOR  = 0.5
@@ -11,7 +11,9 @@ class Player
     @velocity = 0.0
     @image = Gosu::Image.new("assets/images/player.png")
     @sound_collect = Gosu::Sample.new("assets/sound/collect.ogg")
+    @sound_life_lost = Gosu::Sample.new("assets/sound/life-lost.wav")
     @score = 0
+    @lives = 3
   end
 
   def draw
@@ -33,7 +35,7 @@ class Player
   end
 
   def collect(items)
-    items.reject! { |item| collide?(item) ? collision : false }
+    items.reject! { |item| collide?(item) ? collision(item.type) : false }
   end
 
   private
@@ -54,9 +56,16 @@ class Player
     Y + @image.height / 4
   end
 
-  def collision
-    @score += 10
-    @sound_collect.play(1.0)
+  def collision(type)
+    case type
+    when :fish
+      @score += 10
+      @sound_collect.play(1.0)
+    when :turtle
+      @lives -= 1
+      @sound_life_lost.play(1.0)
+    end
+
     true
   end
 end

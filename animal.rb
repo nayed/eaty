@@ -1,10 +1,12 @@
 class Animal
-  attr_reader :x, :y
+  attr_reader :x, :y, :type
 
   def initialize(type)
-    @image = if type == :animal_up
+    @type = type
+
+    @image = if type == :fish
                Gosu::Image.new("assets/images/fish1.png")
-             elsif type == :animal_down
+             elsif type == :turtle
                Gosu::Image.new("assets/images/turtle.png")
              end
     
